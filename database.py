@@ -27,11 +27,16 @@ class Punto:
     def vector(self, punto):
         coordenada_x = punto.x - self.x
         coordenada_y = punto.y - self.y
-        return f"El vector resultante de {self} --> {punto} = ({coordenada_x},{coordenada_y})"
-    
+        vector = Punto(coordenada_x, coordenada_y)
+        return vector
+    def vector_str(self, punto):
+        return f"El vector resultante de {self} --> {punto} = {self.vector(punto)}"
+
     def distancia(self, punto):
         distancia = math.sqrt((punto.x - self.x)**2 + (punto.y - self.y)**2)
-        return f"La distancia entre {self} y {punto} = {distancia}"
+        return distancia
+    def distancia_str(self, punto):
+        return f"La distancia entre {self} y {punto} = {self.distancia(punto)}"
 
 class Rectangulo:
     def __init__(self, punto_inicial=Punto(), punto_final=Punto()):
@@ -41,14 +46,20 @@ class Rectangulo:
     def base(self):
         base = abs(self.punto_final.x - self.punto_inicial.x)
         return base
+    def base_str(self):
+        return "La base del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A, B, rectangulo.base())
 
     def altura(self):
         altura = abs(self.punto_final.y - self.punto_inicial.y)
         return altura
+    def altura_str(self):
+        return "La altura del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A, B, rectangulo.altura())
     
     def area(self):
         area = self.base() * self.altura()
         return area
+    def area_str(self):
+        return "El area del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A, B, rectangulo.area())
     
 # Experimentación
 # Crea los puntos A(2, 3), B(5,5), C(-3, -1) y D(0,0) e imprimelos por pantalla
@@ -56,7 +67,7 @@ A = Punto(2,3)
 B = Punto(5,-5)
 C = Punto(-3,-1)
 D = Punto(0,0)
-print("A{}, B{}, C{}, D{}".format(A,B,C,D))
+print("A{}, B{}, C{}, D{}".format(A, B, C, D))
 
 # Consulta a que cuadrante pertenecen el punto A, C y D.
 print(A.cuadrante())
@@ -64,17 +75,17 @@ print(C.cuadrante())
 print(D.cuadrante())
 
 # Consulta los vectores AB y BA
-print(A.vector(B))
-print(B.vector(A))
+print(A.vector_str(B))
+print(B.vector_str(A))
 
 # Consulta la distancia entre los puntos 'A y B' y 'B y A'
-print(A.distancia(B))
-print(B.distancia(A))
+print(A.distancia_str(B))
+print(B.distancia_str(A))
 
 # Crea un rectángulo utilizando los puntos A y B
 rectangulo = Rectangulo(A,B)
 
 # Consulta la base, altura y área del rectángulo
-print("La base del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A,B,rectangulo.base()))
-print("La altura del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A,B,rectangulo.altura()))
-print("El area del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A,B,rectangulo.area()))
+print(rectangulo.base_str())
+print(rectangulo.altura_str())
+print(rectangulo.area_str())
