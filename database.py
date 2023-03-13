@@ -47,24 +47,24 @@ class Rectangulo:
         base = abs(self.punto_final.x - self.punto_inicial.x)
         return base
     def base_str(self):
-        return "La base del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A, B, rectangulo.base())
+        return "La base del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(self.punto_inicial, self.punto_final, rectangulo.base())
 
     def altura(self):
         altura = abs(self.punto_final.y - self.punto_inicial.y)
         return altura
     def altura_str(self):
-        return "La altura del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A, B, rectangulo.altura())
+        return "La altura del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(self.punto_inicial, self.punto_final, rectangulo.altura())
     
     def area(self):
         area = self.base() * self.altura()
         return area
     def area_str(self):
-        return "El area del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A, B, rectangulo.area())
-    
+        return "El area del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(self.punto_inicial, self.punto_final, rectangulo.area())
+
 # Experimentación
 # Crea los puntos A(2, 3), B(5,5), C(-3, -1) y D(0,0) e imprimelos por pantalla
 A = Punto(2,3)
-B = Punto(5,-5)
+B = Punto(5,5)
 C = Punto(-3,-1)
 D = Punto(0,0)
 print("A{}, B{}, C{}, D{}".format(A, B, C, D))
