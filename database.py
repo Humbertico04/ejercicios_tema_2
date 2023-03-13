@@ -50,17 +50,31 @@ class Rectangulo:
         area = self.base() * self.altura()
         return area
     
-    
-p1 = Punto(2,3)
-p2 = Punto(5,-5)
-p3 = Punto(-3,-1)
-p4 = Punto(0,0)
+# Experimentación
+# Crea los puntos A(2, 3), B(5,5), C(-3, -1) y D(0,0) e imprimelos por pantalla
+A = Punto(2,3)
+B = Punto(5,-5)
+C = Punto(-3,-1)
+D = Punto(0,0)
+print("A{}, B{}, C{}, D{}".format(A,B,C,D))
 
-print(p1.cuadrante())
-print(p1.vector(p2))
-print(p1.distancia(p2))
+# Consulta a que cuadrante pertenecen el punto A, C y D.
+print(A.cuadrante())
+print(C.cuadrante())
+print(D.cuadrante())
 
-rec1 = Rectangulo(p1,p2)
-print(rec1.base()) # f"La base del rectángulo formada por los puntos de su diagonal {self.punto_inicial} y {self.punto_final} es {base}"
-print(rec1.altura()) # f"La altura del rectángulo formada por los puntos de su diagonal {self.punto_inicial} y {self.punto_final} es {altura}"
-print(rec1.area())
+# Consulta los vectores AB y BA
+print(A.vector(B))
+print(B.vector(A))
+
+# Consulta la distancia entre los puntos 'A y B' y 'B y A'
+print(A.distancia(B))
+print(B.distancia(A))
+
+# Crea un rectángulo utilizando los puntos A y B
+rectangulo = Rectangulo(A,B)
+
+# Consulta la base, altura y área del rectángulo
+print("La base del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A,B,rectangulo.base()))
+print("La altura del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A,B,rectangulo.altura()))
+print("El area del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(A,B,rectangulo.area()))
