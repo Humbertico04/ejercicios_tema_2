@@ -47,45 +47,16 @@ class Rectangulo:
         base = abs(self.punto_final.x - self.punto_inicial.x)
         return base
     def base_str(self):
-        return "La base del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(self.punto_inicial, self.punto_final, rectangulo.base())
+        return "La base del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(self.punto_inicial, self.punto_final, self.base())
 
     def altura(self):
         altura = abs(self.punto_final.y - self.punto_inicial.y)
         return altura
     def altura_str(self):
-        return "La altura del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(self.punto_inicial, self.punto_final, rectangulo.altura())
+        return "La altura del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(self.punto_inicial, self.punto_final, self.altura())
     
     def area(self):
         area = self.base() * self.altura()
         return area
     def area_str(self):
-        return "El area del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(self.punto_inicial, self.punto_final, rectangulo.area())
-
-# Experimentación
-# Crea los puntos A(2, 3), B(5,5), C(-3, -1) y D(0,0) e imprimelos por pantalla
-A = Punto(2,3)
-B = Punto(5,5)
-C = Punto(-3,-1)
-D = Punto(0,0)
-print("A{}, B{}, C{}, D{}".format(A, B, C, D))
-
-# Consulta a que cuadrante pertenecen el punto A, C y D.
-print(A.cuadrante())
-print(C.cuadrante())
-print(D.cuadrante())
-
-# Consulta los vectores AB y BA
-print(A.vector_str(B))
-print(B.vector_str(A))
-
-# Consulta la distancia entre los puntos 'A y B' y 'B y A'
-print(A.distancia_str(B))
-print(B.distancia_str(A))
-
-# Crea un rectángulo utilizando los puntos A y B
-rectangulo = Rectangulo(A,B)
-
-# Consulta la base, altura y área del rectángulo
-print(rectangulo.base_str())
-print(rectangulo.altura_str())
-print(rectangulo.area_str())
+        return "El area del rectángulo formada por los puntos de su diagonal {} y {} es {}".format(self.punto_inicial, self.punto_final, self.area())
